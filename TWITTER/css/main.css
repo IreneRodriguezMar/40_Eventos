@@ -6,7 +6,7 @@
 }
 .basura{
 	color: black;
-	margin-left: 90%;
+	float: right;
 }
 li{
 	margin-bottom: 1% !important;

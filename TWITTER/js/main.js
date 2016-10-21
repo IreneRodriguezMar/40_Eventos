@@ -1,10 +1,8 @@
 (function(){
 // Variables
-	var lista = document.getElementById("lista"),
-		tareaTextarea = document.getElementById("tareaText"),
-		btnNuevaTarea = document.getElementById("btn-agregar"),
-		btnEliminarTarea = document.getElementById("btn-elimitar");
- 
+	var lista = document.getElementById("lista");
+	var	tareaTextarea = document.getElementById("tareaText");
+	var	btnNuevaTarea = document.getElementById("btn-agregar");
 	
 	var agregarTarea =function(){
 		
@@ -12,9 +10,18 @@
 		var	tarea = tareaTextarea.value,
 			nuevaTarea = document.createElement("li");
 			nuevaTarea.setAttribute("class","list-group-item fondoGris");
-//<a href="Elimina"><i class="fa fa-trash-o fa-lg basura text-left" aria-hidden="true"></i></a>	
+		
 		var iconoBasura = document.createElement("i");
 		    iconoBasura.setAttribute("class","fa fa-trash-o fa-lg basura text-left");
+		
+		
+		//estara esperando a que suceda el evento (click);
+			iconoBasura.addEventListener("click",borrarTarea);
+		
+		// para agregar checkbox hay que ponerle el tipo
+		var checkbox = document.createElement("input");
+			checkbox.setAttribute("type","checkbox");
+		
 //crea un nodo de texto	
 		var	contenido = document.createTextNode(tarea);
 		
@@ -23,7 +30,8 @@
 			tareaTextarea.setAttribute("placeholder","Agrega tarea valida");
 			return false;
 		}
-//contenido va a estar dentro de mi variable neuvaTarea, 
+//contenido va a estar dentro de mi variable neuvaTarea,
+		nuevaTarea.appendChild(checkbox);
 		nuevaTarea.appendChild(contenido);
 		nuevaTarea.appendChild(iconoBasura);
 		
@@ -33,11 +41,7 @@
 		
 //para que mi textarea se limpie cada que agrego tarea
 		tareaTextarea.value = "";
-// Borrando Elementos de la lista con un evento automatico
-		.addEventListener("click", eleminarTarea);
-		};	
-		
-	};
+		};		
 	
 	var comprobarTextarea =function(){
 		
@@ -55,5 +59,13 @@
 
 }());
 
-
+//funcion que activara el borrado de mis tareas al dar click en el bote de basura
+function borrarTarea(){
+	
+//el this es el bote de basura pero tiene que ir al li (parent) que es lo que quiero borrar
+	var elementoli = this.parentElement;
+	
+//se tiene que ir al parent de li (ul) para asi darle la instruccion que se regrese y elimine li	
+		elementoli.parentElement.removeChild(elementoli);
+}
 
