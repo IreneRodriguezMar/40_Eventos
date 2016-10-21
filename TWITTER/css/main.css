@@ -1,8 +1,15 @@
 .fondoGris{
 	background-color: gainsboro;
 }
-i{
+.mas{
 	color: white;
+}
+.basura{
+	color: black;
+	margin-left: 90%;
+}
+li{
+	margin-bottom: 1% !important;
 }
 
 @media screen and (min-width: 400px) {

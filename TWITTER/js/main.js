@@ -1,59 +1,59 @@
 (function(){
-	// Variables
+// Variables
 	var lista = document.getElementById("lista"),
-		tareaInput = document.getElementById("tareaTextarea"),
-		btnNuevaTarea = document.getElementById("btn-agregar");
+		tareaTextarea = document.getElementById("tareaText"),
+		btnNuevaTarea = document.getElementById("btn-agregar"),
+		btnEliminarTarea = document.getElementById("btn-elimitar");
  
-	// Funciones
-	var agregarTarea = function(){
-		var tarea = tareaInput.value,
-			nuevaTarea = document.createElement("li"),
-			enlace = document.createElement("a"),
-			contenido = document.createTextNode(tarea);
- 
-		if (tarea === "") {
-			tareaInput.setAttribute("placeholder", "Agrega una tarea valida");
-			tareaInput.className = "error";
+	
+	var agregarTarea =function(){
+		
+//lo que se escriba en text area se guardara en la siguiente variable guardandolo como lista y creando dentro de la lista un nodo de texto
+		var	tarea = tareaTextarea.value,
+			nuevaTarea = document.createElement("li");
+			nuevaTarea.setAttribute("class","list-group-item fondoGris");
+//<a href="Elimina"><i class="fa fa-trash-o fa-lg basura text-left" aria-hidden="true"></i></a>	
+		var iconoBasura = document.createElement("i");
+		    iconoBasura.setAttribute("class","fa fa-trash-o fa-lg basura text-left");
+//crea un nodo de texto	
+		var	contenido = document.createTextNode(tarea);
+		
+//si el usuario no agrega nada le aparecera un error
+		if (tarea ===""){
+			tareaTextarea.setAttribute("placeholder","Agrega tarea valida");
 			return false;
 		}
- 
-		// Agregamos el contenido al enlace
-		enlace.appendChild(contenido);
-		// Le establecemos un atributo href
-		enlace.setAttribute("href", "#");
-		// Agrergamos el enlace (a) a la nueva tarea (li)
-		nuevaTarea.appendChild(enlace);
-		// Agregamos la nueva tarea a la lista
+//contenido va a estar dentro de mi variable neuvaTarea, 
+		nuevaTarea.appendChild(contenido);
+		nuevaTarea.appendChild(iconoBasura);
+		
+//mi contenido en la lista ya quedara dentro de mi li
 		lista.appendChild(nuevaTarea);
- 
-		tareaInput.value = "";
- 
-		for (var i = 0; i <= lista.children.length -1; i++) {
-			lista.children[i].addEventListener("click", function(){
-				this.parentNode.removeChild(this);
-			});
-		}
- 
+		
+		
+//para que mi textarea se limpie cada que agrego tarea
+		tareaTextarea.value = "";
+// Borrando Elementos de la lista con un evento automatico
+		.addEventListener("click", eleminarTarea);
+		};	
+		
 	};
-	var comprobarInput = function(){
-		tareaInput.className = "";
-		teareaInput.setAttribute("placeholder", "Añade tu nueva tarea");
+	
+	var comprobarTextarea =function(){
+		
 	};
- 
-	var eleminarTarea = function(){
-		this.parentNode.removeChild(this);
+	var eliminarTarea = function(){
+		
 	};
- 
-	// Eventos
- 
-	// Agregar Tarea
+
+// Agregar Tarea al hacer click en el boton
 	btnNuevaTarea.addEventListener("click", agregarTarea);
  
-	// Comprobar Input
-	tareaInput.addEventListener("click", comprobarInput);
+// al ejecutar la funcion va a comprobar si esta vacio o no el textarea y le marcara como error obligando al usuario a darle click para quitarlo
+	tareaTextarea.addEventListener("click", comprobarTextarea);
  
-	// Borrando Elementos de la lista
-	for (var i = 0; i <= lista.children.length -1; i++) {
-		lista.children[i].addEventListener("click", eleminarTarea);
-	}
+
 }());
+
+
+
