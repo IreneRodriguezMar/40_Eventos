@@ -68,4 +68,9 @@ function borrarTarea(){
 //se tiene que ir al parent de li (ul) para asi darle la instruccion que se regrese y elimine li	
 		elementoli.parentElement.removeChild(elementoli);
 }
+//funcion para linea en texto
+function tacharTarea(){
+	var tachado = nuevaTarea.addEventListener("click",checkbox);
+
+}
 
