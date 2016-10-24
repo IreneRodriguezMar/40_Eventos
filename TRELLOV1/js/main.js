@@ -13,9 +13,20 @@ function añadir() {
     guardar.appendChild(textbtn);
     document.body.appendChild(guardar);
 	
+	var lista = document.getElementById("lista");
+	var texto = document.getElementById(textInput);
+	
+	var guardarLista = function (){
+		var listaAñadida = document.createElement("li");
+			listaAñadida.setAttribute("class", "list-group-item");
+		var textoContenido = document.createTextNode(listaAñadida);
+		
+		listaAñadida.appendChild(textoContenido); 
+		lista.appendChild(listaAñadida);
+		
+		textInput.value ="";
+	}
 
 }
 
-//var lista = document.getElementById("lista");
-//	var	tareaTextarea = document.getElementById("tareaText");
-//	var	btnNuevaTarea = document.getElementById("btn-agregar");
+//Mostrar en el HTML, el texto ingresado al dar click en el botón de "Guardar" del formulario (como si fuera título de la lista). Debajo del título, mostrar el mensaje clickeable de "Añadir una tarjea".

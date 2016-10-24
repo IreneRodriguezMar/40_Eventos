@@ -10,6 +10,9 @@
 		var	tarea = tareaTextarea.value,
 			nuevaTarea = document.createElement("li");
 			nuevaTarea.setAttribute("class","list-group-item fondoGris");
+//crea un nodo de texto	
+		var	contenido = document.createTextNode(tarea);
+		
 		
 		var iconoBasura = document.createElement("i");
 		    iconoBasura.setAttribute("class","fa fa-trash-o fa-lg basura text-left");
@@ -22,9 +25,7 @@
 		var checkbox = document.createElement("input");
 			checkbox.setAttribute("type","checkbox");
 		
-//crea un nodo de texto	
-		var	contenido = document.createTextNode(tarea);
-		
+
 //si el usuario no agrega nada le aparecera un error
 		if (tarea ===""){
 			tareaTextarea.setAttribute("placeholder","Agrega tarea valida");
