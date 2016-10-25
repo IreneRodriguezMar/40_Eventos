@@ -20,3 +20,9 @@
 .gris-trello{
 	background-color: #E2E4E6;
 }
+.tamañotarjetas{
+	width: 25%;
+}
+.inputblock{
+	display: block;
+}
