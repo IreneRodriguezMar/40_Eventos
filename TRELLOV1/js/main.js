@@ -6,9 +6,10 @@ function añadir() {
 	var div = document.getElementById("btnañadirlista").parentElement;
     var añadeInputs = document.createElement("input");
 		añadeInputs.setAttribute("placeholder","Añadir una lista...");
+	var nuevoDiv = document.createElement("div");
 	
 	//que mi input (añadeInputs) lo guarde como hijo de div, en este caso mi boton
-		div.appendChild(añadeInputs);
+		nuevoDiv.appendChild(añadeInputs);	
 	
 	var guardar = document.createElement("button");
 		guardar.setAttribute("class","btn-success");
@@ -16,7 +17,7 @@ function añadir() {
 	
 	//que el nodo de texto lo guarde en mi boton gurdar y este lo guarde como hijo de div
 		guardar.appendChild(textbtn);
-    	div.appendChild(guardar);
+    	nuevoDiv.appendChild(guardar);
 	
 	//que el boton que cree se active con onclick y con la funcion le digo que me cree un h3 con un nodo de texto	
 		guardar.onclick = function (){
@@ -36,10 +37,17 @@ function añadir() {
 	var textañadeTarjeta = document.createTextNode("añadir una tarjeta");		
 			añadirTarjeta.appendChild(textañadeTarjeta);
 			div.appendChild(añadirTarjeta);
-		
+			
+			div.parentElement.appendChild(guardar);	
+			div.parentElement.appendChild(añadeInputs);
 	}
+		
+	//var prueba = document.createElement("input");
+	//	prueba.setAttribute("placeholder","input de prueba");					
+	//	div.parentElement.appendChild(prueba);
+	
 	//que mi boton de añadir lista sea reemplazado por mi input con boton	
- // div.replaceChild() 
+   div.parentElement.replaceChild(nuevoDiv, div); 
 	
 
 }

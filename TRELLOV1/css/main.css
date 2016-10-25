@@ -26,3 +26,6 @@
 .inputblock{
 	display: block;
 }
+*{
+	display: inline-block;
+}
