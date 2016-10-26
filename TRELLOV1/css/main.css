@@ -3,10 +3,6 @@
 }
 .opacity{
 	opacity: 0.5;
-    filter: alpha(opacity=50);
-}
-.black{
-	color: black;
 }
 .white{
 	color: white;
@@ -14,18 +10,13 @@
 .bg-gris{
 	background-color: gainsboro;
 }
-.tx-gris{
-	color: darkgrey;
-}
 .gris-trello{
 	background-color: #E2E4E6;
 }
 .tamañotarjetas{
 	width: 25%;
 }
-.inputblock{
-	display: block;
-}
-*{
+.inline{
 	display: inline-block;
 }
+//
